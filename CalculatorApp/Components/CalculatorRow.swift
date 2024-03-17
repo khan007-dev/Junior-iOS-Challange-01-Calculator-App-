@@ -7,12 +7,28 @@
 
 import SwiftUI
 
+
+
 struct CalculatorRow: View {
+    var labels = ["", "", "", ""]
+    var colors: [Color] = [.gray, .gray, .gray, .orange]
+    let columnCount = 4
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+        HStack (spacing: 10) {
+            
+            ForEach(0..<columnCount) { index in
+            
+                CalculatorButton(label: labels[index], color: colors[index])
+                
+            }
+            
+        }
     }
 }
 
 #Preview {
-    CalculatorRow()
+    CalculatorRow(labels: ["1","2","3","4"])
+       
 }
